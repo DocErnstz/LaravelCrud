@@ -9,7 +9,7 @@
 </div>
 <div class="row" align="left">
      <div class="pull-right">
-        
+        <a href="{{ route("student.create") }}" class="btn btn-success">New Student</a>
      </div>
 </div>
 @if ($message = Session::get("success"))
