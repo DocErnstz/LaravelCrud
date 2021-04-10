@@ -9,7 +9,7 @@
 </div>
 <div class="row" align="left">
      <div class="pull-right">
-         <a href="{{ route("student.create")}}" class="btn btn-sucess">New Student</a>
+        
      </div>
 </div>
 @if ($message = Session::get("success"))
@@ -26,22 +26,15 @@
         <th>Adress</th>
         <th width="280px">Action</th>
     </tr>
-</table>
-@foreach ($students as $student)
+    @foreach ($students as $student)
     <tr>
         <td>{{$student->id}}</td>
         <td>{{$student->name}}</td>
         <td>{{$student->phone}}</td>
-        <td>{{$student->adress}}</td>
-        <td>
-            <form action="{{route("student.destroy", $student->id)}}" method="POST">
-                <a href="{{route("student.edit", $student->id)}}" class="btn btn-primary">Edit</a>
-                {{csrf_field()}}
-                {{method_field("DELETE")}}
-                <input type="submit" class="btn btn-danger delete-user" value="Delete">
-            </form>
-        </td>
+        <td>{{$student->address}}</td>
     </tr>
     
 @endforeach
+</table>
+
 @endsection
