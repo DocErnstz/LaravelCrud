@@ -27,4 +27,24 @@ class StudentsController extends Controller
         ]);
         return redirect()->route("student.index")->with("success", "Student has been added");
     }
+
+    public function edit(Students $student)
+    {
+        return view("edit")->with("student", $student);
+    }
+    public function update(Request $request, Students $student)
+    {
+        $student->update([
+            "name" => $request->name,
+            "phone" => $request->phone,
+            "address" => $request->address,
+            "created_at" => now(),
+        ]);
+        return redirect()->route("student.index")->with("success", "student has been updated");
+    }
+    public function destroy(Students $student)
+    {
+        $student->delete();
+        return redirect()->route("student.index")->with("success", "Student has been delete");
+    }
 }
