@@ -25,6 +25,6 @@ class StudentsController extends Controller
             "address" => $request->address,
             "created_at" => now(),
         ]);
-        return redirect()->route("students.index")->with("success", "Student has been added");
+        return redirect()->route("student.index")->with("success", "Student has been added");
     }
 }
